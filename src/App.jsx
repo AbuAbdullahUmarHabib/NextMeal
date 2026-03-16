@@ -18,7 +18,7 @@ function App() {
           <Tabs></Tabs>
         </div>
       </section>
-      <section className="grid grid-cols-12 gap-8">
+      <section className="grid grid-cols-12 gap-6 shadow bg-neutral-50">
         <div className="col-span-8">
           <Suspense
             fallback={
@@ -30,8 +30,8 @@ function App() {
             <MealSection foodData={foodData}></MealSection>
           </Suspense>
         </div>
-        <div className="col-span-4">
-          <div className="card bg-base-100 shadow-sm">
+        <div className="col-span-4 p-4 rounded-md">
+          <div className="card bg-base-100 shadow">
             <div className="card-body">
               <h2 className="card-title">Cart</h2>
             </div>
