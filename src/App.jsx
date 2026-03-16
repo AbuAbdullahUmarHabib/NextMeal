@@ -18,16 +18,25 @@ function App() {
           <Tabs></Tabs>
         </div>
       </section>
-      <section>
-        <Suspense
-          fallback={
-            <h1 className="flex h-screen items-center justify-center">
-              <span className="loading loading-ring loading-xl"></span>
-            </h1>
-          }
-        >
-          <MealSection foodData={foodData}></MealSection>
-        </Suspense>
+      <section className="grid grid-cols-12 gap-8">
+        <div className="col-span-8">
+          <Suspense
+            fallback={
+              <h1 className="flex h-screen items-center justify-center">
+                <span className="loading loading-ring loading-xl"></span>
+              </h1>
+            }
+          >
+            <MealSection foodData={foodData}></MealSection>
+          </Suspense>
+        </div>
+        <div className="col-span-4">
+          <div className="card bg-base-100 shadow-sm">
+            <div className="card-body">
+              <h2 className="card-title">Cart</h2>
+            </div>
+          </div>
+        </div>
       </section>
     </section>
   );
