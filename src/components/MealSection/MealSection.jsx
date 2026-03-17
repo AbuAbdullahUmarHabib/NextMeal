@@ -1,16 +1,35 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import Card from "../Cards/Card";
+import Cart from "../Cart/Cart";
 
 const MealSection = ({ foodData }) => {
   const allMealData = use(foodData);
   const meals = allMealData.meals;
   console.log(meals);
+
+  const [cart, setCart] = useState([]);
+  const addToCart = (mealData) => {
+    setCart([...cart, mealData]);
+  };
+
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-8 p-4 rounded-md">
-      {meals.map((meal) => (
-        <Card meal={meal}></Card>
-      ))}
-    </div>
+    <section className="grid grid-cols-12">
+      <div className="col-span-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 p-4 rounded-md">
+          {meals.map((meal) => (
+            <Card addToCart={addToCart} meal={meal}></Card>
+          ))}
+        </div>
+      </div>
+      <div className="col-span-4 p-4">
+        <div className="card bg-base-100 shadow">
+          <div className="card-body">
+            <h2 className="card-title">Cart</h2>
+            <Cart cart={cart}></Cart>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

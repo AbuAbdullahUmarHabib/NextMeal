@@ -1,7 +1,7 @@
 import React from "react";
 import MealSection from "../MealSection/MealSection";
 
-const Card = ({ meal }) => {
+const Card = ({ meal, addToCart }) => {
   return (
     <div className="card bg-base-100 shadow-sm">
       <figure>
@@ -20,7 +20,10 @@ const Card = ({ meal }) => {
         </div>
         <div className="grid grid-cols-12 gap-2 mt-4">
           <input type="number" placeholder="1" className="input col-span-2" />
-          <button className="btn bg-orange-400 hover:bg-orange-600 text-white col-span-10">
+          <button
+            onClick={() => addToCart(meal)}
+            className="btn bg-orange-400 hover:bg-orange-600 text-white col-span-10"
+          >
             Add to cart
           </button>
         </div>
