@@ -5,13 +5,15 @@ import Cart from "../Cart/Cart";
 const MealSection = ({ foodData }) => {
   const allMealData = use(foodData);
   const meals = allMealData.meals;
-  console.log(meals);
 
   const [cart, setCart] = useState([]);
   const addToCart = (mealData) => {
     setCart([...cart, mealData]);
   };
-
+  const handleOrder = () => {
+    setCart([]);
+    alert("Order Completed");
+  };
   return (
     <section className="grid grid-cols-12">
       <div className="col-span-8">
@@ -25,10 +27,11 @@ const MealSection = ({ foodData }) => {
         <div className="card bg-base-100 shadow">
           <div className="card-body">
             <h2 className="card-title">Cart</h2>
-            <Cart cart={cart}></Cart>
+            <Cart handleOrder={handleOrder} cart={cart}></Cart>
           </div>
         </div>
       </div>
+      <ToastContainer />
     </section>
   );
 };

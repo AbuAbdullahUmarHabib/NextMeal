@@ -1,7 +1,7 @@
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
 
-const Cart = ({ cart }) => {
-  console.log(cart);
+const Cart = ({ cart, handleOrder }) => {
   return (
     <div className="mb-8">
       {cart.map((item) => (
@@ -37,6 +37,9 @@ const Cart = ({ cart }) => {
           </li>
         </ul>
       ))}
+      <button onClick={handleOrder} className="btn btn-success w-full">
+        Place Order
+      </button>
     </div>
   );
 };

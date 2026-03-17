@@ -4,6 +4,7 @@ import Nav from "./components/Nav/Nav";
 import Tabs from "./components/Tabs/Tabs";
 import MealSection from "./components/MealSection/MealSection";
 import { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
 
 const foodData = fetch(
   "https://www.themealdb.com/api/json/v1/1/search.php?f=a",
@@ -31,6 +32,7 @@ function App() {
           </Suspense>
         </div>
       </section>
+      <ToastContainer />
     </section>
   );
 }

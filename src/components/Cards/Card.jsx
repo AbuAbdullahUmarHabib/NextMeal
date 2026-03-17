@@ -1,7 +1,10 @@
 import React from "react";
 import MealSection from "../MealSection/MealSection";
+import { ToastContainer, toast } from "react-toastify";
 
 const Card = ({ meal, addToCart }) => {
+  const notify = () => toast("Meal is added to cart");
+
   return (
     <div className="card bg-base-100 shadow-sm">
       <figure>
@@ -21,7 +24,10 @@ const Card = ({ meal, addToCart }) => {
         <div className="grid grid-cols-12 gap-2 mt-4">
           <input type="number" placeholder="1" className="input col-span-2" />
           <button
-            onClick={() => addToCart(meal)}
+            onClick={() => {
+              addToCart(meal);
+              notify();
+            }}
             className="btn bg-orange-400 hover:bg-orange-600 text-white col-span-10"
           >
             Add to cart
