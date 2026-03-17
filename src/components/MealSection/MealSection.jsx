@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import Card from "../Cards/Card";
 import Cart from "../Cart/Cart";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const MealSection = ({ foodData }) => {
   const allMealData = use(foodData);
@@ -13,7 +13,7 @@ const MealSection = ({ foodData }) => {
   };
   const handleOrder = () => {
     setCart([]);
-    alert("Order Completed");
+    toast.success("Order Completed");
   };
   return (
     <section className="grid grid-cols-12">

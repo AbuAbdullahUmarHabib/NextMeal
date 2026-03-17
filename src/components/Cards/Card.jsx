@@ -3,7 +3,9 @@ import MealSection from "../MealSection/MealSection";
 import { ToastContainer, toast } from "react-toastify";
 
 const Card = ({ meal, addToCart }) => {
-  const notify = () => toast("Meal is added to cart");
+  const notify = () => {
+    toast.success("Meal is added to cart");
+  };
 
   return (
     <div className="card bg-base-100 shadow-sm">
