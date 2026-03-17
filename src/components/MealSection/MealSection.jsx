@@ -1,6 +1,7 @@
 import React, { use, useState } from "react";
 import Card from "../Cards/Card";
 import Cart from "../Cart/Cart";
+import { ToastContainer } from "react-toastify";
 
 const MealSection = ({ foodData }) => {
   const allMealData = use(foodData);
