@@ -1,7 +1,6 @@
 import { CircleX } from "lucide-react";
-import React from "react";
 
-const Cart = ({ cart, handleOrder }) => {
+const Cart = ({ cart, handleOrder, removeCart }) => {
   return (
     <div className="mb-8">
       {cart.map((item) => (
@@ -17,7 +16,10 @@ const Cart = ({ cart, handleOrder }) => {
               </div>
             </div>
 
-            <button className="btn btn-square btn-ghost">
+            <button
+              onClick={() => removeCart(item.idMeal)}
+              className="btn btn-square btn-ghost"
+            >
               <CircleX color="#d0d0d2" />
             </button>
           </li>

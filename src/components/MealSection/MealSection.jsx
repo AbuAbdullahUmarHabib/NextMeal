@@ -13,14 +13,19 @@ const MealSection = ({ foodData }) => {
   };
   const handleOrder = () => {
     setCart([]);
+    alert("Thanks for your order");
     toast.success("Order Completed");
+  };
+
+  const removeCart = (mealId) => {
+    setCart(cart.filter((meal) => meal.idMeal !== mealId));
   };
   return (
     <section className="grid grid-cols-12">
       <div className="col-span-8">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 p-4 rounded-md">
           {meals.map((meal) => (
-            <Card addToCart={addToCart} meal={meal}></Card>
+            <Card key={meal.idMeal} addToCart={addToCart} meal={meal}></Card>
           ))}
         </div>
       </div>
@@ -28,7 +33,11 @@ const MealSection = ({ foodData }) => {
         <div className="card bg-base-100 shadow">
           <div className="card-body">
             <h2 className="card-title">Cart</h2>
-            <Cart handleOrder={handleOrder} cart={cart}></Cart>
+            <Cart
+              removeCart={removeCart}
+              handleOrder={handleOrder}
+              cart={cart}
+            ></Cart>
           </div>
         </div>
       </div>
